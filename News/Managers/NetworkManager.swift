@@ -23,11 +23,10 @@ class NetworkManager {
                 let data = try JSONDecoder().decode(News.self, from: data)
                 let news = data.articles
                 completion(news)
-
             } catch let error {
-                print("error!!!!!!")
                 print(error)
             }
         }.resume()
     }
 }
+

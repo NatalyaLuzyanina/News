@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C149BD8126925004005300EC /* ArticleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C149BD8026925004005300EC /* ArticleImageView.swift */; };
+		C183D07226E89C56004358A9 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183D07126E89C56004358A9 /* ImageManager.swift */; };
 		C1AB166B268F286D00E1F6AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB166A268F286D00E1F6AB /* AppDelegate.swift */; };
 		C1AB166D268F286D00E1F6AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB166C268F286D00E1F6AB /* SceneDelegate.swift */; };
 		C1AB1672268F286D00E1F6AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AB1670268F286D00E1F6AB /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C149BD8026925004005300EC /* ArticleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleImageView.swift; sourceTree = "<group>"; };
+		C183D07126E89C56004358A9 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		C1AB1667268F286D00E1F6AB /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AB166A268F286D00E1F6AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1AB166C268F286D00E1F6AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C149BD832692501F005300EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C1AB1689268F791600E1F6AB /* ArticleCell.swift */,
+				C149BD8026925004005300EC /* ArticleImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C1AB165E268F286D00E1F6AB = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				C1F3530C26906AB600D9372C /* NetworkManager.swift */,
+				C183D07126E89C56004358A9 /* ImageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -112,7 +126,7 @@
 		C1F353142690705F00D9372C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C1AB1689268F791600E1F6AB /* ArticleCell.swift */,
+				C149BD832692501F005300EC /* Views */,
 				C1AB167F268F4A0500E1F6AB /* MainViewController.swift */,
 				C1AB1686268F61F400E1F6AB /* DetailViewController.swift */,
 			);
@@ -200,6 +214,8 @@
 				C1AB1680268F4A0500E1F6AB /* MainViewController.swift in Sources */,
 				C1AB166B268F286D00E1F6AB /* AppDelegate.swift in Sources */,
 				C1AB168A268F791700E1F6AB /* ArticleCell.swift in Sources */,
+				C183D07226E89C56004358A9 /* ImageManager.swift in Sources */,
+				C149BD8126925004005300EC /* ArticleImageView.swift in Sources */,
 				C1F3530D26906AB600D9372C /* NetworkManager.swift in Sources */,
 				C1AB1687268F61F400E1F6AB /* DetailViewController.swift in Sources */,
 				C1AB166D268F286D00E1F6AB /* SceneDelegate.swift in Sources */,
@@ -352,7 +368,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7625BBDFN3;
-				INFOPLIST_FILE = News/Info.plist;
+				INFOPLIST_FILE = News/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -371,7 +387,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7625BBDFN3;
-				INFOPLIST_FILE = News/Info.plist;
+				INFOPLIST_FILE = News/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

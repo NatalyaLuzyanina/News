@@ -9,51 +9,16 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var imageView: ArticleImageView!
+    @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
     var new: Article!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchImage()
-        // Do any additional setup after loading the view.
+        titleLabel.text = new.title
+        imageView.fetchImage(url: new.urlToImage ?? "")
+        contentLabel.text = new.content
     }
-    
-    private func fetchImage() {
-            // создаем экземпляр класса юрл
-        guard let string = new.urlToImage else { return }
-        guard let url = URL(string: string) else { return }
-            
-         
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                guard let data = data, let response = response else {
-                    print(error?.localizedDescription ?? "No error description")
-                    return
-                }
-               
-                guard let image = UIImage(data: data) else { return }
-                
-                
-                //запрос происходит в фоновом потоке
-                //а интерфейс работает в основном потоке
-                //нужно выйти из фонового в основной поток
-                DispatchQueue.main.async {
-                    //передаем картинку
-                    self.imageView.image = image
-                    // останавливаем ромашку
-                    //self.activityIndicator.stopAnimating()
-                }
-            }.resume()
-        }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

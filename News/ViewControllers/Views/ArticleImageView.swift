@@ -7,22 +7,20 @@
 
 import UIKit
 
-class ArticleImageView: UIImageView {
+class ArticleImageView: UIImageView { 
     
     func fetchImage(url: String) {
         guard let url = URL(string: url) else {
-            image = UIImage(named: "noImage")
-            return
+            return image = UIImage(named: "noImage")
         }
         
         if let cashedImage = getCashedImage(from: url) {
-            image = cashedImage
-            return
+            image =  cashedImage
         }
         
         ImageManager.shared.fetchImage(url: url) { (data, response) in
-            self.image = UIImage(data: data)
             self.saveDataToCache(with: data, and: response)
+            self.image = UIImage(data: data)
         }
     }
     

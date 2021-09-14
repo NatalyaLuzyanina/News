@@ -12,13 +12,16 @@ class DetailViewController: UIViewController {
     @IBOutlet var imageView: ArticleImageView!
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
-    var new: Article!
+    
+    var detailViewModel: ViewModelCellType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = new.title
-        imageView.fetchImage(url: new.urlToImage ?? "")
-        contentLabel.text = new.content
+        titleLabel.text = detailViewModel.title
+        contentLabel.text = detailViewModel.description
+        
+        guard let data = detailViewModel?.image else { return }
+        imageView.image = UIImage(data: data)
     }
 }

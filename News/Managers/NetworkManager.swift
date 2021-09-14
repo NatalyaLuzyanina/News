@@ -7,10 +7,9 @@
 
 import Foundation
 
-class NetworkManager {
+class NetworkManager: NSObject {
     
     static let shared = NetworkManager()
-    private init() {}
     
     func getNews(completion: @escaping ([Article]) -> Void) {
         guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=285f568edbcc47e08b0886a32a0935d3") else { return }
@@ -22,7 +21,9 @@ class NetworkManager {
             do {
                 let data = try JSONDecoder().decode(News.self, from: data)
                 let news = data.articles
-                completion(news)
+                DispatchQueue.main.async {
+                    completion(news)
+                }
             } catch let error {
                 print(error)
             }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4s-oG-pvj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N4s-oG-pvj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="Cell" rowHeight="200" id="qmB-pO-EmI" customClass="ArticleCell" customModule="News" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qmB-pO-EmI" id="Ss2-rV-Ttu" customClass="ArticleCell" customModule="News" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -81,8 +81,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="NEWS" id="EFG-Ul-3jr"/>
+                    <connections>
+                        <outlet property="viewModel" destination="gRp-eT-Jc8" id="s0I-fT-i5x"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="StC-7s-x2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="NM7-Tc-YMF" customClass="NetworkManager" customModule="News" customModuleProvider="target"/>
+                <customObject id="gRp-eT-Jc8" customClass="ViewModel" customModule="News" customModuleProvider="target">
+                    <connections>
+                        <outlet property="networkManager" destination="NM7-Tc-YMF" id="irB-G2-bnL"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1493" y="110"/>
         </scene>

@@ -8,31 +8,28 @@
 import UIKit
 
 class MainViewController: UITableViewController {
+   
+    @IBOutlet var viewModel: ViewModel!
     
-    var news: [Article] = []
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NetworkManager.shared.getNews { news in
-            self.news = news
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+        viewModel.fetchNews {
+            self.tableView.reloadData()
         }
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return news.count
+        return viewModel.numberOfRows()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ArticleCell
         
-        let new = news[indexPath.row]
+        let cellViewModel = viewModel.viewModelCell(forIndexPath: indexPath)
         
-        cell.configureCell(with: new)
+        cell.viewModelCell = cellViewModel
         
         if let stackView = cell.contentView.viewWithTag(1) as? UIStackView {
             stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,9 +47,9 @@ class MainViewController: UITableViewController {
         if let cell = sender as? ArticleCell {
             guard let index = tableView.indexPath(for: cell) else { return }
             tableView.deselectRow(at: index, animated: true)
-            let new = news[index.row]
+            let detailViewModel = viewModel.viewModelCell(forIndexPath: index)
             let detailVC = segue.destination as? DetailViewController
-            detailVC?.new = new
+            detailVC?.detailViewModel = detailViewModel
         }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 protocol ViewModelCellType: AnyObject {
     var title: String { get }
     var description: String { get }
-    var image: Data? { get }
+    var image: String { get }
     var date: String { get }
 
 }
@@ -18,10 +18,9 @@ protocol ViewModelCellType: AnyObject {
 class ViewModelCell: ViewModelCellType {
     private var article: Article
     
-    var image: Data? {
-        let url = URL(string: article.urlToImage ?? "")
-        guard let imageData = ImageManager.shared.fetchImageData(from: url) else { return nil }
-        return imageData
+    var image: String {
+        guard let stringURL = article.urlToImage else { return "" }
+        return stringURL
     }
     
     var title: String {

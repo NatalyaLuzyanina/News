@@ -24,12 +24,4 @@ class ImageManager {
             }
         }.resume()
     }
-    
-    
-    func fetchImageData(from URL: URL?) -> Data? {
-        guard let URL = URL else { return nil }
-        guard let imageData = try? Data(contentsOf: URL) else { return nil }
-        return imageData
-    }
-    
 }

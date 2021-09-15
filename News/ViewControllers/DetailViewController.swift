@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
         titleLabel.text = detailViewModel.title
         contentLabel.text = detailViewModel.description
         
-        guard let data = detailViewModel?.image else { return }
-        imageView.image = UIImage(data: data)
+        guard let url = detailViewModel?.image else { return }
+        imageView.fetchImage(url: url)
     }
 }

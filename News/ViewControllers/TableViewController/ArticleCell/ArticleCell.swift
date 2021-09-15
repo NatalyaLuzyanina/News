@@ -11,7 +11,7 @@ class ArticleCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var imageViewCell: UIImageView!
+    @IBOutlet var imageViewCell: ArticleImageView!
     @IBOutlet var dateLabel: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,8 +26,8 @@ class ArticleCell: UITableViewCell {
             descriptionLabel.text = viewModel?.description
             dateLabel.text = viewModel?.date
             
-            guard let data = viewModel?.image else { return }
-            imageViewCell.image = UIImage(data: data)
+            guard let url = viewModel?.image else { return }
+            imageViewCell.fetchImage(url: url)
         }
     }
 }

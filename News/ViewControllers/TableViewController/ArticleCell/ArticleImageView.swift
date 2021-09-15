@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArticleImageView: UIImageView { 
+class ArticleImageView: UIImageView {
     
     func fetchImage(url: String) {
         guard let url = URL(string: url) else {
